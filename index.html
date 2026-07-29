@@ -9,6 +9,9 @@
   <meta property="og:description" content="따뜻하고 감성적인 수제 디저트 카페, 나키케키의 메뉴를 만나보세요.">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="images/logo/logo_color.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -85,7 +88,49 @@
   </div>
 
   <main>
-    <h1 class="visually-hidden">나키케키 수제 디저트 카페 메뉴</h1>
+    <section class="hero" aria-label="대표 이미지">
+      <div class="hero-intro">
+        <p class="hero-eyebrow">Nakikeki</p>
+        <h1 class="hero-tagline">A Little Sweet,<br>Every Day.</h1>
+      </div>
+
+      <div class="hero-track" id="heroTrack">
+        <div class="hero-slide">
+          <img
+            class="hero-image"
+            src="images/banner01.jpeg"
+            alt="크림으로 정교하게 장식된 케이크 표면 클로즈업"
+            width="4032"
+            height="3024"
+            fetchpriority="high"
+          >
+        </div>
+        <div class="hero-slide">
+          <img
+            class="hero-image"
+            src="images/banner02.jpeg"
+            alt="살구와 피스타치오를 올린 케이크 조각"
+            width="3024"
+            height="4032"
+          >
+        </div>
+        <div class="hero-slide">
+          <img
+            class="hero-image"
+            src="images/banner03.jpeg"
+            alt="크림 로제트로 장식한 홀 케이크"
+            width="3024"
+            height="4032"
+          >
+        </div>
+      </div>
+
+      <div class="hero-dots" id="heroDots" role="tablist" aria-label="배너 슬라이드 선택">
+        <button type="button" class="hero-dot is-active" role="tab" aria-selected="true" aria-label="1번째 이미지 보기"></button>
+        <button type="button" class="hero-dot" role="tab" aria-selected="false" aria-label="2번째 이미지 보기"></button>
+        <button type="button" class="hero-dot" role="tab" aria-selected="false" aria-label="3번째 이미지 보기"></button>
+      </div>
+    </section>
   </main>
 
   <script src="js/script.js"></script>

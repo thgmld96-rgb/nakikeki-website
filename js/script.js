@@ -79,3 +79,91 @@
   window.addEventListener("scroll", updateScrolledState, { passive: true });
   updateScrolledState();
 })();
+
+(function initHeroBanner() {
+  const track = document.getElementById("heroTrack");
+  const dots = document.querySelectorAll(".hero-dot");
+
+  if (!track || dots.length === 0) {
+    return;
+  }
+
+  const AUTOPLAY_INTERVAL_MS = 4000;
+  const mobileQuery = window.matchMedia("(max-width: 768px)");
+  let autoplayTimer = null;
+
+  function getActiveIndex() {
+    const slideWidth = track.clientWidth;
+    if (!slideWidth) {
+      return 0;
+    }
+    return Math.round(track.scrollLeft / slideWidth);
+  }
+
+  function updateDots() {
+    const activeIndex = getActiveIndex();
+    dots.forEach(function updateDot(dot, index) {
+      const isActive = index === activeIndex;
+      dot.classList.toggle("is-active", isActive);
+      dot.setAttribute("aria-selected", String(isActive));
+    });
+  }
+
+  function goToSlide(index) {
+    track.scrollTo({ left: track.clientWidth * index, behavior: "smooth" });
+  }
+
+  function goToNextSlide() {
+    const nextIndex = (getActiveIndex() + 1) % dots.length;
+    goToSlide(nextIndex);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    if (!mobileQuery.matches) {
+      return;
+    }
+    autoplayTimer = window.setInterval(goToNextSlide, AUTOPLAY_INTERVAL_MS);
+  }
+
+  dots.forEach(function bindDot(dot, index) {
+    dot.addEventListener("click", function handleDotClick() {
+      goToSlide(index);
+      startAutoplay();
+    });
+  });
+
+  track.addEventListener(
+    "scroll",
+    function handleTrackScroll() {
+      window.requestAnimationFrame(updateDots);
+    },
+    { passive: true }
+  );
+
+  track.addEventListener("touchstart", stopAutoplay, { passive: true });
+  track.addEventListener("touchend", startAutoplay, { passive: true });
+
+  mobileQuery.addEventListener("change", function handleBreakpointChange() {
+    updateDots();
+    startAutoplay();
+  });
+
+  window.addEventListener(
+    "resize",
+    function handleResize() {
+      updateDots();
+    },
+    { passive: true }
+  );
+
+  updateDots();
+  startAutoplay();
+})();
