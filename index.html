@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나키케키 | 수제 디저트 카페</title>
+  <meta name="description" content="따뜻하고 감성적인 수제 디저트 카페, 나키케키의 메뉴를 만나보세요.">
+  <meta property="og:title" content="나키케키 | 수제 디저트 카페">
+  <meta property="og:description" content="따뜻하고 감성적인 수제 디저트 카페, 나키케키의 메뉴를 만나보세요.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="images/logo/logo_color.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="welcome-modal-overlay" id="welcomeModalOverlay">
+    <div
+      class="welcome-modal"
+      id="welcomeModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="welcomeModalTitle"
+    >
+      <button
+        type="button"
+        class="welcome-modal__close"
+        id="welcomeModalClose"
+        aria-label="팝업 닫기"
+      ></button>
+
+      <h2 class="welcome-modal__title" id="welcomeModalTitle">Welcome<br>to<br>Nakikeki !</h2>
+
+      <div class="welcome-modal__photo-wrap">
+        <img
+          class="welcome-modal__photo"
+          src="images/popup.jpg"
+          alt="주방에서 거품기로 반죽을 젓고 있는 아이"
+        >
+      </div>
+
+      <p class="welcome-modal__credit">made with love ♡</p>
+
+      <p class="welcome-modal__caption">귀엽고 맛있는거 만들어요 🍰</p>
+
+      <button type="button" class="welcome-modal__cta" id="welcomeModalCta">구경가기</button>
+    </div>
+  </div>
+
+  <div class="header-wrapper">
+    <header class="header-inner" id="siteHeader">
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <button
+          type="button"
+          class="site-nav__toggle"
+          id="navToggle"
+          aria-label="메뉴 열기"
+          aria-expanded="false"
+          aria-controls="siteNavList"
+        >
+          <span class="site-nav__toggle-bar"></span>
+          <span class="site-nav__toggle-bar"></span>
+          <span class="site-nav__toggle-bar"></span>
+        </button>
+        <ul class="site-nav__list" id="siteNavList">
+          <li><a class="site-nav__link" href="#desserts">Desserts</a></li>
+          <li><a class="site-nav__link" href="#custom-cake">Custom Cake</a></li>
+          <li><a class="site-nav__link" href="#about">About</a></li>
+        </ul>
+      </nav>
+
+      <a class="site-header__logo-link" href="./index.html" aria-label="나키케키 홈으로 이동">
+        <img class="site-header__logo" src="images/logo/logo_original.svg" alt="나키케키">
+      </a>
+
+      <a
+        class="site-header__instagram"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram으로 이동"
+      >
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+    </header>
+  </div>
+
+  <main>
+    <h1 class="visually-hidden">나키케키 수제 디저트 카페 메뉴</h1>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
