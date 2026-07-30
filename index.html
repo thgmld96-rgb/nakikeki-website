@@ -130,6 +130,57 @@
         <button type="button" class="hero-dot" role="tab" aria-selected="false" aria-label="2번째 이미지 보기"></button>
         <button type="button" class="hero-dot" role="tab" aria-selected="false" aria-label="3번째 이미지 보기"></button>
       </div>
+
+      <!-- Desktop-only slider: independent markup/JS from the mobile slider above -->
+      <div class="hero-slider" id="heroSlider">
+        <button type="button" class="hero-slider__arrow hero-slider__arrow--prev" id="heroSliderPrev" aria-label="이전 슬라이드"></button>
+
+        <div class="hero-slider__stage">
+          <div class="hero-slider__viewport">
+            <div class="hero-slider__track" id="heroSliderTrack">
+              <div class="hero-slider__slide">
+                <div class="hero-slider__collage">
+                  <div class="hero-slider__collage-item hero-slider__collage-item--side">
+                    <img class="hero-slider__image" src="images/banner01.jpeg" alt="크림으로 정교하게 장식된 케이크 표면 클로즈업" width="4032" height="3024" fetchpriority="high">
+                  </div>
+                  <div class="hero-slider__collage-item hero-slider__collage-item--center">
+                    <img class="hero-slider__image" src="images/banner02.jpeg" alt="살구와 피스타치오를 올린 케이크 조각" width="3024" height="4032">
+                  </div>
+                  <div class="hero-slider__collage-item hero-slider__collage-item--side">
+                    <img class="hero-slider__image" src="images/banner03.jpeg" alt="크림 로제트로 장식한 홀 케이크" width="3024" height="4032">
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-slider__slide">
+                <img class="hero-slider__image" src="images/banner04.jpg" alt="청포도와 살구가 들어간 케이크 단면 클로즈업" width="3024" height="2268">
+              </div>
+
+              <div class="hero-slider__slide">
+                <div class="hero-slider__collage">
+                  <div class="hero-slider__collage-item hero-slider__collage-item--side">
+                    <img class="hero-slider__image" src="images/banner05.jpeg" alt="허브 크림을 올린 컵 디저트" width="2804" height="3738">
+                  </div>
+                  <div class="hero-slider__collage-item hero-slider__collage-item--center">
+                    <img class="hero-slider__image" src="images/banner06.jpeg" alt="나뭇잎 모양으로 구운 쿠키들" width="4032" height="3024">
+                  </div>
+                  <div class="hero-slider__collage-item hero-slider__collage-item--side">
+                    <img class="hero-slider__image" src="images/banner07.jpeg" alt="허브가 콕콕 박힌 타르트 크림 클로즈업" width="2325" height="3100">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-slider__dots" id="heroSliderDots" role="tablist" aria-label="히어로 슬라이드 선택">
+            <button type="button" class="hero-slider__dot is-active" role="tab" aria-selected="true" aria-label="1번째 슬라이드 보기"></button>
+            <button type="button" class="hero-slider__dot" role="tab" aria-selected="false" aria-label="2번째 슬라이드 보기"></button>
+            <button type="button" class="hero-slider__dot" role="tab" aria-selected="false" aria-label="3번째 슬라이드 보기"></button>
+          </div>
+        </div>
+
+        <button type="button" class="hero-slider__arrow hero-slider__arrow--next" id="heroSliderNext" aria-label="다음 슬라이드"></button>
+      </div>
     </section>
   </main>
 

@@ -167,3 +167,85 @@
   updateDots();
   startAutoplay();
 })();
+
+(function initHeroDesktopSlider() {
+  const track = document.getElementById("heroSliderTrack");
+  const prevButton = document.getElementById("heroSliderPrev");
+  const nextButton = document.getElementById("heroSliderNext");
+  const dots = document.querySelectorAll(".hero-slider__dot");
+
+  if (!track || !prevButton || !nextButton || dots.length === 0) {
+    return;
+  }
+
+  const AUTOPLAY_INTERVAL_MS = 5000;
+  const SLIDE_WIDTH_PERCENT = 100 / dots.length;
+  const desktopQuery = window.matchMedia("(min-width: 769px)");
+  let currentIndex = 0;
+  let autoplayTimer = null;
+
+  function updateSlide() {
+    track.style.transform = "translateX(-" + currentIndex * SLIDE_WIDTH_PERCENT + "%)";
+    dots.forEach(function updateDot(dot, index) {
+      const isActive = index === currentIndex;
+      dot.classList.toggle("is-active", isActive);
+      dot.setAttribute("aria-selected", String(isActive));
+    });
+  }
+
+  function goToSlide(index) {
+    currentIndex = (index + dots.length) % dots.length;
+    updateSlide();
+  }
+
+  function goToNextSlide() {
+    goToSlide(currentIndex + 1);
+  }
+
+  function goToPrevSlide() {
+    goToSlide(currentIndex - 1);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    if (!desktopQuery.matches) {
+      return;
+    }
+    autoplayTimer = window.setInterval(goToNextSlide, AUTOPLAY_INTERVAL_MS);
+  }
+
+  prevButton.addEventListener("click", function handlePrevClick() {
+    goToPrevSlide();
+    startAutoplay();
+  });
+
+  nextButton.addEventListener("click", function handleNextClick() {
+    goToNextSlide();
+    startAutoplay();
+  });
+
+  dots.forEach(function bindDot(dot, index) {
+    dot.addEventListener("click", function handleDotClick() {
+      goToSlide(index);
+      startAutoplay();
+    });
+  });
+
+  track.addEventListener("mouseenter", stopAutoplay);
+  track.addEventListener("mouseleave", startAutoplay);
+
+  desktopQuery.addEventListener("change", function handleBreakpointChange() {
+    updateSlide();
+    startAutoplay();
+  });
+
+  updateSlide();
+  startAutoplay();
+})();
