@@ -249,3 +249,51 @@
   updateSlide();
   startAutoplay();
 })();
+
+(function initDessertsGallery() {
+  const gallery = document.getElementById("dessertsGallery");
+
+  if (!gallery) {
+    return;
+  }
+
+  let isDragging = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+
+  function handlePointerDown(event) {
+    isDragging = true;
+    startX = event.pageX;
+    startScrollLeft = gallery.scrollLeft;
+    gallery.classList.add("is-dragging");
+    event.preventDefault();
+  }
+
+  function handlePointerMove(event) {
+    if (!isDragging) {
+      return;
+    }
+    const deltaX = event.pageX - startX;
+    gallery.scrollLeft = startScrollLeft - deltaX;
+  }
+
+  function handlePointerUp() {
+    isDragging = false;
+    gallery.classList.remove("is-dragging");
+  }
+
+  gallery.addEventListener("mousedown", handlePointerDown);
+  window.addEventListener("mousemove", handlePointerMove);
+  window.addEventListener("mouseup", handlePointerUp);
+
+  function setInitialScrollPosition() {
+    const firstItem = gallery.querySelector(".desserts-gallery__item");
+    if (!firstItem) {
+      return;
+    }
+    const paddingLeft = firstItem.getBoundingClientRect().left - gallery.getBoundingClientRect().left;
+    gallery.scrollLeft = paddingLeft + firstItem.getBoundingClientRect().width * 0.3;
+  }
+
+  setInitialScrollPosition();
+})();
