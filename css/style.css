@@ -1103,6 +1103,10 @@ body.no-scroll {
 
   .customcake-slider__item {
     scroll-snap-align: center;
+    /* Safety net: JS sets an explicit square width+height, but if that
+       hasn't run yet (or a stale cached script ever runs), this stops the
+       photo from stretching into a tall strip instead of staying square. */
+    max-height: 100vw;
   }
 
   .customcake-slider__dots {
