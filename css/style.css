@@ -453,7 +453,7 @@ body.no-scroll {
 .hero {
   width: 100%;
   margin: 40px auto 0;
-  padding: 0 20px;
+  padding: 0 26px;
 }
 
 .hero-intro {
@@ -730,9 +730,10 @@ body.no-scroll {
   background: var(--color-surface);
 }
 
-.desserts-intro {
+.section-intro {
   width: calc(100% - 48px);
   max-width: 1200px;
+  min-height: 50px;
   margin: 0 auto;
   padding-left: 30px;
   display: flex;
@@ -743,7 +744,7 @@ body.no-scroll {
   font-weight: 600;
 }
 
-.desserts-intro__text {
+.section-intro__text {
   margin: 0;
   font-size: 16px;
   color: var(--color-text);
@@ -833,7 +834,9 @@ body.no-scroll {
   }
 
   .desserts-titlebar__title {
-    font-size: 20px;
+    font-size: 18px;
+    padding: 4px 0;
+    padding-left: 4px;
   }
 
   .desserts-panel {
@@ -850,7 +853,281 @@ body.no-scroll {
     height: 200px;
   }
 
-  .desserts-intro {
-    padding-left: 0;
+  .section-intro {
+    padding-left: 4px;
+  }
+
+  .desserts-cta {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .section-intro__text {
+    font-size: 14px;
+  }
+}
+
+/* =====================================================================
+   Custom Cake Section (same design system as Desserts: title box,
+   panel background, CTA button all share the same tokens/values)
+   ===================================================================== */
+.customcake {
+  scroll-margin-top: 120px;
+}
+
+.customcake-titlebar {
+  width: calc(100% - 48px);
+  max-width: 1200px;
+  margin: var(--space-64) auto 0;
+  padding: var(--space-24) var(--space-32);
+  background: var(--color-surface);
+  border-radius: 0;
+  border-bottom: 1px solid #eae3dc;
+}
+
+.customcake-titlebar__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: left;
+}
+
+.customcake-panel {
+  width: 100%;
+  margin-top: var(--space-24);
+  padding: var(--space-32) 0;
+  background: var(--color-surface);
+}
+
+.customcake-layout {
+  width: calc(100% - 48px);
+  max-width: 1200px;
+  margin: var(--space-32) auto 0;
+  margin-bottom: var(--space-32);
+  display: grid;
+  grid-template-columns: 77fr 23fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.customcake-slider-col {
+  min-width: 0;
+}
+
+.customcake-slider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.customcake-slider__stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.customcake-slider__viewport {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.customcake-slider__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.customcake-slider__track {
+  display: flex;
+  gap: var(--space-12);
+}
+
+.customcake-slider__item {
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-16);
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.customcake-slider__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.customcake-slider__arrow {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform var(--duration-fast) ease;
+}
+
+.customcake-slider__arrow:hover,
+.customcake-slider__arrow:focus-visible {
+  transform: scale(1.1);
+}
+
+.customcake-slider__arrow:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.customcake-slider__arrow::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid var(--color-text);
+  border-right: 2px solid var(--color-text);
+}
+
+.customcake-slider__arrow--prev::before {
+  margin-left: 3px;
+  transform: rotate(-135deg);
+}
+
+.customcake-slider__arrow--next::before {
+  margin-right: 3px;
+  transform: rotate(45deg);
+}
+
+.customcake-slider__dots {
+  display: none;
+}
+
+.customcake-slider__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-border);
+  cursor: pointer;
+  transition: background var(--duration-slow) ease, transform var(--duration-slow) ease;
+}
+
+.customcake-slider__dot.is-active {
+  background: var(--color-primary);
+  transform: scale(1.2);
+}
+
+.customcake-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.customcake-content__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.customcake-content__desc {
+  margin: var(--space-16) 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.customcake-cta {
+  margin-top: var(--space-24);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: 16px 32px;
+  border-radius: var(--radius-24);
+  background: var(--color-primary);
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: filter var(--duration-fast) ease, transform var(--duration-fast) ease;
+}
+
+.customcake-cta:hover {
+  filter: brightness(0.97);
+}
+
+.customcake-cta:active {
+  transform: scale(0.98);
+}
+
+.customcake-cta:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .customcake-titlebar {
+    margin-top: var(--space-48);
+    padding: var(--space-16) var(--space-20);
+  }
+
+  .customcake-titlebar__title {
+    font-size: 18px;
+    padding: 4px 0 4px 4px;
+  }
+
+  .customcake-panel {
+    margin-top: var(--space-16);
+    padding: var(--space-24) 0;
+  }
+
+  .customcake-layout {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    margin-top: var(--space-24);
+    gap: var(--space-24);
+  }
+
+  .customcake-slider__item {
+    scroll-snap-align: center;
+  }
+
+  .customcake-slider__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-8);
+    margin-top: var(--space-16);
+  }
+
+  .customcake-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .customcake-content__title {
+    font-size: 24px;
+  }
+
+  .customcake-content__desc {
+    font-size: 14px;
+  }
+
+  .customcake-cta {
+    padding: 10px 24px;
+    font-size: 14px;
   }
 }

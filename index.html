@@ -37,7 +37,7 @@
         <img
           class="welcome-modal__photo"
           src="images/popup.jpg"
-          alt="주방에서 거품기로 반죽을 젓고 있는 아이"
+          alt="팝업창이미지"
         >
       </div>
 
@@ -188,8 +188,8 @@
       </div>
 
       <div class="desserts-panel">
-        <div class="desserts-intro">
-          <p class="desserts-intro__text">제가 만드는 디저트들을 소개해드릴게요!</p>
+        <div class="section-intro">
+          <p class="section-intro__text">제가 만드는 디저트들을 소개해드릴게요!</p>
           <a class="desserts-cta" href="desserts.html">View more →</a>
         </div>
 
@@ -206,6 +206,56 @@
             <div class="desserts-gallery__item"><img class="desserts-gallery__image" src="images/desserts/slider/dessert-slide-09.jpg" alt="식용 꽃과 딸기로 장식한 미니 케이크" draggable="false" loading="lazy"></div>
             <div class="desserts-gallery__item"><img class="desserts-gallery__image" src="images/desserts/slider/dessert-slide-10.jpg" alt="딸기, 키위, 귤을 넣은 롤케이크 단면" draggable="false" loading="lazy"></div>
             <div class="desserts-gallery__item"><img class="desserts-gallery__image" src="images/desserts/slider/dessert-slide-11.jpg" alt="피칸을 올린 초콜릿칩 쿠키 반죽" draggable="false" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="customcake" id="custom-cake" aria-label="커스텀 케이크 소개">
+      <div class="customcake-titlebar">
+        <h2 class="customcake-titlebar__title">Custom Cake</h2>
+      </div>
+
+      <div class="customcake-panel">
+        <div class="section-intro">
+          <p class="section-intro__text">제가 만드는 커스텀 케이크도 소개해드릴게요!</p>
+        </div>
+
+        <div class="customcake-layout">
+          <div class="customcake-slider-col">
+            <div class="customcake-slider">
+              <button type="button" class="customcake-slider__arrow customcake-slider__arrow--prev" id="customcakePrev" aria-label="이전 이미지"></button>
+
+              <div class="customcake-slider__stage">
+                <div class="customcake-slider__viewport" id="customcakeViewport">
+                  <div class="customcake-slider__track" id="customcakeTrack">
+                    <div class="customcake-slider__item"><img class="customcake-slider__image" src="images/customcakes/slider/customcake-slider01.jpg" alt="노란색과 파란색 그러데이션 생일 케이크" loading="lazy"></div>
+                    <div class="customcake-slider__item"><img class="customcake-slider__image" src="images/customcakes/slider/customcake-slider02.jpg" alt="하트 모양 케이크를 올린 2단 생일 케이크" loading="lazy"></div>
+                    <div class="customcake-slider__item"><img class="customcake-slider__image" src="images/customcakes/slider/customcake-slider03.jpg" alt="민트색 레터링 케이크와 초 장식" loading="lazy"></div>
+                    <div class="customcake-slider__item"><img class="customcake-slider__image" src="images/customcakes/slider/customcake-slider04.jpg" alt="하늘색 2단 케이크와 골드 비즈 장식" loading="lazy"></div>
+                    <div class="customcake-slider__item"><img class="customcake-slider__image" src="images/customcakes/slider/customcake-slider05.jpg" alt="주황색 스월 장식 레터링 케이크" loading="lazy"></div>
+                    <div class="customcake-slider__item"><img class="customcake-slider__image" src="images/customcakes/slider/customcake-slider06.jpg" alt="연두색 사각 레터링 케이크" loading="lazy"></div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" class="customcake-slider__arrow customcake-slider__arrow--next" id="customcakeNext" aria-label="다음 이미지"></button>
+            </div>
+
+            <div class="customcake-slider__dots" id="customcakeDots" role="tablist" aria-label="커스텀 케이크 이미지 선택">
+              <button type="button" class="customcake-slider__dot is-active" role="tab" aria-selected="true" aria-label="1번째 이미지 보기"></button>
+              <button type="button" class="customcake-slider__dot" role="tab" aria-selected="false" aria-label="2번째 이미지 보기"></button>
+              <button type="button" class="customcake-slider__dot" role="tab" aria-selected="false" aria-label="3번째 이미지 보기"></button>
+              <button type="button" class="customcake-slider__dot" role="tab" aria-selected="false" aria-label="4번째 이미지 보기"></button>
+              <button type="button" class="customcake-slider__dot" role="tab" aria-selected="false" aria-label="5번째 이미지 보기"></button>
+              <button type="button" class="customcake-slider__dot" role="tab" aria-selected="false" aria-label="6번째 이미지 보기"></button>
+            </div>
+          </div>
+
+          <div class="customcake-content">
+            <h3 class="customcake-content__title">Handmade<br>Custom Cakes</h3>
+            <p class="customcake-content__desc">생일 , 기념일 ,<br>레터링 케이크 등</p>
+            <a class="customcake-cta" href="custom-cake.html">Order guide →</a>
           </div>
         </div>
       </div>
