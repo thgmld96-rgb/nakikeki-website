@@ -368,7 +368,11 @@
       currentGap = (viewport.clientWidth - itemWidth) / 2 + MOBILE_PEEK_GUARD_PX;
     }
     allSlots.forEach(function setWidth(slot) {
+      // Set height explicitly too (photos are square) instead of relying
+      // solely on the CSS aspect-ratio property, so sizing stays correct
+      // even on browsers/devices with weaker aspect-ratio support.
       slot.style.width = itemWidth + "px";
+      slot.style.height = itemWidth + "px";
     });
     track.style.gap = currentGap + "px";
   }
