@@ -10,6 +10,7 @@
   --color-cta-text: #FFFDF9;
   --color-border: #EAE3DC;
   --color-surface: #F8F6F2;
+  --color-surface-alt: #F8F5EF;
 
   /* Typography */
   --font-heading: "Outfit", -apple-system, "Pretendard", "Noto Sans KR", sans-serif;
@@ -1133,5 +1134,166 @@ body.no-scroll {
   .customcake-cta {
     padding: 10px 24px;
     font-size: 14px;
+  }
+}
+
+/* =====================================================================
+   About Section (title box + panel reuse the exact Desserts/Custom Cake
+   pattern; only the background color differs, via --color-surface-alt)
+   ===================================================================== */
+.about {
+  scroll-margin-top: 120px;
+}
+
+.about-titlebar {
+  width: calc(100% - 48px);
+  max-width: 1200px;
+  margin: var(--space-64) auto 0;
+  padding: var(--space-24) var(--space-32);
+  background: var(--color-surface-alt);
+  border-radius: 0;
+  border-bottom: 1px solid #eae3dc;
+}
+
+.about-titlebar__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: left;
+}
+
+.about-panel {
+  width: 100%;
+  margin-top: var(--space-24);
+  padding: var(--space-32) 0;
+  background: var(--color-surface-alt);
+}
+
+.about-layout {
+  width: calc(100% - 48px);
+  max-width: 1200px;
+  margin: var(--space-32) auto 0;
+  margin-bottom: var(--space-32);
+  padding: 0 var(--space-64);
+  display: grid;
+  grid-template-columns: minmax(200px, 0.7fr) minmax(320px, 1.5fr);
+  grid-template-areas: "text media";
+  align-items: center;
+  gap: var(--space-24);
+}
+
+.about-content {
+  grid-area: text;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.about-content__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.about-content__text {
+  margin: var(--space-16) 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.about-media {
+  grid-area: media;
+  min-width: 0;
+}
+
+.about-media__card {
+  width: 100%;
+  padding: var(--space-12);
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+  transition: transform 380ms ease, box-shadow 380ms ease;
+}
+
+.about-media__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1180 / 686;
+  object-fit: cover;
+  display: block;
+}
+
+.about-media__credit {
+  margin: var(--space-8) 0 0;
+  font-size: 13px;
+  text-align: right;
+  color: var(--color-text);
+}
+
+/* Hover-capable pointers only: keeps the effect off mobile/touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .about-media__card:hover {
+    transform: scale(1.025);
+    box-shadow: 0 12px 28px rgba(74, 63, 56, 0.12);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-titlebar {
+    margin-top: var(--space-48);
+    padding: var(--space-16) var(--space-20);
+  }
+
+  .about-titlebar__title {
+    font-size: 18px;
+    padding: 4px 0 4px 4px;
+  }
+
+  .about-panel {
+    margin-top: var(--space-16);
+    padding: var(--space-24) 0;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "media"
+      "text";
+    margin-top: var(--space-24);
+    padding: 0;
+    gap: var(--space-24);
+  }
+
+  .about-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-content__title {
+    font-size: 24px;
+  }
+
+  .about-content__text {
+    font-size: 14px;
+  }
+
+  .about-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-media__card {
+    width: 85%;
+  }
+
+  .about-media__credit {
+    width: 85%;
   }
 }
