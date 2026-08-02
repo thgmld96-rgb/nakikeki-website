@@ -11,6 +11,7 @@
   --color-border: #EAE3DC;
   --color-surface: #F8F6F2;
   --color-surface-alt: #F8F5EF;
+  --color-footer-bg: #F5F1EA;
 
   /* Typography */
   --font-heading: "Outfit", -apple-system, "Pretendard", "Noto Sans KR", sans-serif;
@@ -1295,5 +1296,170 @@ body.no-scroll {
 
   .about-media__credit {
     width: 85%;
+  }
+}
+
+/* =====================================================================
+   Instagram Section (plain white background, fully centered; the CTA
+   reuses .customcake-cta as-is — same style, same hover behavior)
+   ===================================================================== */
+.instagram {
+  width: 100%;
+  padding: calc(var(--space-64) * 2) var(--space-24);
+}
+
+.instagram-layout {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.instagram-icon {
+  font-size: 32px;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.instagram-handle {
+  margin: var(--space-4) 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.instagram-heading {
+  margin: var(--space-24) 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.instagram-desc {
+  margin: var(--space-16) 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.instagram .customcake-cta {
+  margin-top: var(--space-24);
+  padding-left: var(--space-48);
+  padding-right: var(--space-48);
+}
+
+@media (max-width: 768px) {
+  .instagram {
+    padding: calc(var(--space-48) * 2) var(--space-24);
+  }
+
+  .instagram-heading {
+    font-size: 14px;
+  }
+
+  .instagram-desc {
+    font-size: 14px;
+  }
+}
+
+/* =====================================================================
+   Site Footer (full-bleed background, content in the same
+   max-width: 1200px container used by the header/titlebar pattern)
+   ===================================================================== */
+.site-footer {
+  width: 100%;
+  background: var(--color-footer-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.site-footer__inner {
+  width: calc(100% - 48px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-48) 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-24);
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer__logo {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.site-footer__credit {
+  margin: var(--space-16) 0 0;
+  font-size: 13px;
+  color: var(--color-text);
+}
+
+.site-footer__copyright {
+  margin: var(--space-12) 0 0;
+  font-size: 13px;
+  color: var(--color-text);
+}
+
+.site-footer__social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: transform var(--duration-fast) ease;
+}
+
+.site-footer__social-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.site-footer__social-sub {
+  font-size: 13px;
+  color: var(--color-text);
+}
+
+.site-footer__social:hover,
+.site-footer__social:focus-visible {
+  transform: scale(1.03);
+}
+
+.site-footer__social:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .site-footer__inner {
+    padding: var(--space-32) var(--space-24);
+    gap: var(--space-16);
+  }
+
+  .site-footer__logo {
+    font-size: 20px;
+  }
+
+  .site-footer__logo,
+  .site-footer__credit,
+  .site-footer__copyright,
+  .site-footer__social-top,
+  .site-footer__social-sub {
+    white-space: nowrap;
   }
 }
