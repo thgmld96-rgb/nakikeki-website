@@ -252,6 +252,7 @@
 
 (function initDessertsGallery() {
   const gallery = document.getElementById("dessertsGallery");
+  const progressBar = document.getElementById("dessertsGalleryProgressBar");
 
   if (!gallery) {
     return;
@@ -260,6 +261,15 @@
   let isDragging = false;
   let startX = 0;
   let startScrollLeft = 0;
+
+  function updateProgress() {
+    if (!progressBar) {
+      return;
+    }
+    const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+    const progress = maxScroll > 0 ? gallery.scrollLeft / maxScroll : 0;
+    progressBar.style.transform = "scaleX(" + Math.min(Math.max(progress, 0.04), 1) + ")";
+  }
 
   function handlePointerDown(event) {
     isDragging = true;
@@ -285,6 +295,8 @@
   gallery.addEventListener("mousedown", handlePointerDown);
   window.addEventListener("mousemove", handlePointerMove);
   window.addEventListener("mouseup", handlePointerUp);
+  gallery.addEventListener("scroll", updateProgress, { passive: true });
+  window.addEventListener("resize", updateProgress);
 
   function setInitialScrollPosition() {
     const firstItem = gallery.querySelector(".desserts-gallery__item");
@@ -296,6 +308,7 @@
   }
 
   setInitialScrollPosition();
+  updateProgress();
 })();
 
 (function initCustomCakeSlider() {

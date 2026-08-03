@@ -823,6 +823,25 @@ body.no-scroll {
   pointer-events: none;
 }
 
+.desserts-gallery__progress {
+  width: calc(100% - 48px);
+  max-width: 1200px;
+  height: 4px;
+  margin: 0 auto;
+  background: var(--color-border);
+  border-radius: var(--radius-8);
+  overflow: hidden;
+}
+
+.desserts-gallery__progress-bar {
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: inherit;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
 @media (min-width: 769px) {
   .desserts-gallery__item {
     height: 380px;
