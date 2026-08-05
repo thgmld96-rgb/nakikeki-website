@@ -670,14 +670,7 @@ body.no-scroll {
   }
 
   .hero-slider__dots {
-    position: absolute;
-    left: 50%;
-    bottom: var(--space-16);
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    gap: var(--space-8);
-    transform: translateX(-50%);
+    display: none;
   }
 
   .hero-slider__dot {
